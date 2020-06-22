@@ -1,15 +1,15 @@
-### Date created
-Include the date you created this project and README file.
+# 21 June 2020
 
-### Project Title
-Replace the Project Title
+## Bikeshare Project
 
-### Description
-Describe what your project is about and what it does
+## Description
+This is the repo for a Udacity project organizing bikeshare data from Chicago, New York City, and Washington. The project responds to user input and provides descriptive statistics and other requested information.
 
-### Files used
-Include the files used
+## Files used
+bikeshare.py
+chicago.csv
+new_york_city.csv
+washington.csv
 
-### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
-
+## Credits
+The initial bikeshare.py template was provided by Udacity. Various python and pandas tutorials, documentation, and other resources consulted throughout the project including Udacity, stack overflow, w3 resources, and Geeks for Geeks.
