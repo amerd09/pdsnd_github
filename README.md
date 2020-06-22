@@ -2,6 +2,12 @@
 
 ## Bikeshare Project
 
+## Table of Contents
+
+* [Description](#description)
+* [Files_used](#files_used)
+* [Credits](#credits)
+
 ## Description
 This is the repo for a Udacity project organizing bikeshare data from Chicago, New York City, and Washington. The project responds to user input and provides descriptive statistics and other requested information.
 
