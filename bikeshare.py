@@ -75,7 +75,7 @@ def load_data(city, month, day):
     Returns:
         df - Pandas DataFrame containing city data filtered by month and day
     """
-    
+
     # load data file into a dataframe
     df = pd.read_csv(CITY_DATA[city])
 
@@ -85,13 +85,13 @@ def load_data(city, month, day):
     # extract month and day of week from Start Time to create new columns
     df['month'] = df['Start Time'].dt.month
     df['day_of_week'] = df['Start Time'].dt.weekday_name
-    
+
     # filter by month if applicable
     if month != 'all':
         # use the index of the months list to get the corresponding int
         months = ['january', 'february', 'march', 'april', 'may', 'june']
         month = months.index(month) + 1
-    
+
         # filter by month to create the new dataframe
         df = df[df['month'] == month]
 
@@ -99,7 +99,7 @@ def load_data(city, month, day):
     if day != 'all':
         # filter by day of week to create the new dataframe
         df = df[df['day_of_week'] == day.title()]
-        
+
 
     return df
 
@@ -145,7 +145,7 @@ def station_stats(df):
     print("The most commonly used end station was {}.".format(popular_endpoint))
     # TO DO: display most frequent combination of start station and end station trip
     # after combining start and end station to create new column
-    df['start_end'] = df['Start Station'] + "," + df['End Station'] 
+    df['start_end'] = df['Start Station'] + "," + df['End Station']
     popular_start_end = df['start_end'].mode()[0]
     print("The most common trip started at {} and ended at {}.".format(popular_start_end.split(",")[0], popular_start_end.split(",")[1]))
 
@@ -176,7 +176,7 @@ def trip_duration_stats(df):
     total_travel_time %= 60
     seconds = int(total_travel_time)
     print("All users combined took a grand total of {} trips that lasted for a grand total of: \n{} days, \n{} hours, \n{} minutes, \nand {} seconds on trips.".format(total_trips, days, hours, minutes, seconds))
-    
+
     # TO DO: display mean travel time
     #get mean travel time in seconds and use div, mod to convert to minutes, seconds
     mean_travel_time = df['Trip Duration'].mean()
@@ -184,7 +184,7 @@ def trip_duration_stats(df):
     mean_travel_time %= 60
     seconds = int(mean_travel_time)
     print("The average trip was {} minutes and {} seconds long.".format(int(minutes), int(seconds)))
-    
+
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
@@ -194,14 +194,14 @@ def user_stats(df):
 
     print('\nCalculating User Stats...\n')
     start_time = time.time()
-    
+
     # TO DO: Display counts of user types
     subscribers = df['User Type'].value_counts()[0]
     subscribers = f'{subscribers:n}'
     customers = df['User Type'].value_counts()[1]
     customers = f'{customers:n}'
     print("{} subscribers, and {} customers were active users.".format(subscribers, customers))
-    
+
     # TO DO: Display counts of gender if pertinent data exists for the city selected
     if 'Gender' in df.columns:
         males = df['Gender'].value_counts()[0]
@@ -209,9 +209,9 @@ def user_stats(df):
         females = df['Gender'].value_counts()[1]
         females = f'{females:n}'
         print("{} males, and {} females were active users.".format(males, females))
-    else:    
+    else:
         print("Gender data is unavailable for the selected city. ")
-    
+
     # TO DO: Display earliest, most recent, and most common year of birth if pertinent data exists for the city selected
     current_year = date.today().year
     if 'Birth Year' in df.columns:
@@ -235,7 +235,7 @@ def user_stats(df):
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
-    
+
 def raw_data(df):
     """
     Asks user if they want to see 5 lines of raw data.
@@ -247,7 +247,7 @@ def raw_data(df):
     end_row = 4
 
     while True:
-        sample_data = input('\nWould you like to see all available information for five trips? Enter yes or no.\n')
+        sample_data = input('\nWould you like to see five lines of raw data? Enter yes or no.\n')
         # Check if response is yes, print the raw data and increment count by 5
         #offer the user 5 rows of sample data, set to display all columns
         if sample_data.lower() == 'yes':
