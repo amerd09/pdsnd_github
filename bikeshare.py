@@ -273,7 +273,7 @@ def main():
         raw_data(df)
 
         #invite the user to restart or exit
-        restart = input('\nWould you like to restart? Enter yes or no.\n')
+        restart = input('\nWould you like to restart the program? Enter yes or no.\n')
         if restart.lower() != 'yes':
             break
 
